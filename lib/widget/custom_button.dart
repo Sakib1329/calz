@@ -33,12 +33,14 @@ class CustomActionButton extends StatelessWidget {
         shadowColor: AppColors.lightGray,
 
       ),
-      child: Text(
-        text,
-        style: TextStyle(
-          color: textColor,
-          fontFamily: 'Schuyler',
-          fontSize: 18,
+      child: Center(
+        child: Text(
+          text,
+          style: TextStyle(
+            color: textColor,
+            fontFamily: 'Schuyler',
+            fontSize: 20,
+          ),
         ),
       ),
     );

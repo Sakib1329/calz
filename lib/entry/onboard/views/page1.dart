@@ -38,13 +38,16 @@ class Page1 extends StatelessWidget {
             CustomActionButton(
               text: 'Male',
               onPressed: () {
-                controller.selectGender('male');
+                controller.selectedGender('Male');
+                if(controller.isselected.value==false)
+                controller.isselected.toggle();
+
               },
-              backgroundColor: controller.selectedGender.value == 'male'
+              backgroundColor: controller.selectedGender.value == 'Male'
                   ? AppColors.darkGreen
                   : AppColors.neutralUltraLight,
               borderColor: AppColors.lightGray,
-              textColor: controller.selectedGender.value == 'male'
+              textColor: controller.selectedGender.value == 'Male'
                   ? AppColors.lightGray
                   : AppColors.darkOlive,
             ),
@@ -52,13 +55,15 @@ class Page1 extends StatelessWidget {
             CustomActionButton(
               text: 'Female',
               onPressed: () {
-                controller.selectGender('female');
+                controller.selectedGender('Female');
+                if(controller.isselected.value==false)
+                  controller.isselected.toggle();
               },
-              backgroundColor: controller.selectedGender.value == 'female'
+              backgroundColor: controller.selectedGender.value == 'Female'
                   ? AppColors.darkGreen
                   : AppColors.neutralUltraLight,
               borderColor: AppColors.lightGray,
-              textColor: controller.selectedGender.value == 'female'
+              textColor: controller.selectedGender.value == 'Female'
                   ? AppColors.lightGray
                   : AppColors.darkOlive,
             ),

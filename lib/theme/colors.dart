@@ -4,10 +4,13 @@ class AppColors {
   static const darkGreen = Color(0xFF090F03);
   static const deepPurple = Color(0xFF1E1923);
   static const lightGray = Color(0xFFEEEEEE);
+  static const  darkLightGray = Color(0xFFEDEDED);
   static const gray = Color(0xFFD9D9D9);
   static const darkOlive = Color(0xFF111C06);
   static const pureWhite = Color(0xFFFEFEFE);
+  static const neutralLight2 = Color(0xFFD1D6CC);
   static const neutralLight = Color(0xFFF2F2F2);
+  static const neutralGrayDark = Color(0xFF575757);
   static const neutralMedium = Color(0xFFC8C8C8);
   static const neutralMediumDark = Color(0xFFBDBDBD);
   static const neutralDark = Color(0xFF6B7280);
@@ -16,6 +19,15 @@ class AppColors {
   static const surfaceDark = Color(0xFF1D1A23);
   static const borderGray = Color(0xFFB6B7BB);
   static const transparent = Colors.transparent;
-  static const Color neutralGray = Color(0xFFA0A0A0);
-  static const Color lightBlue = Color(0xFFF3F6FF);
+  static const  neutralGray = Color(0xFFA0A0A0);
+ static  const  verylightbluishwhite = Color(0xFFFBFCFF);
+  static const  myRed = Color(0xFFE85456);
+  static const mediumGray = Color(0xFF868484);
+  static const veryDarkGray = Color(0xFF535353);
+  static const lightGrayBlue = Color(0xFFE7E9EE);
+  static const  veryLightGray = Color(0xFFF3F3F3);
+  static const  customGray = Color(0xFF5B5C5F);
+  static const  customGray2 = Color(0xFF696969);
+  static const  lightBlue = Color(0xFFF3F6FF);
+  static const lightGray2 = Color(0xFF999999);
 }

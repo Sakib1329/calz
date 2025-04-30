@@ -5,9 +5,9 @@ import '../../../widget/custom_button.dart';
 import '../controller/onboard_controller.dart';
 import '../widget/button.dart';
 
-class Page2 extends StatelessWidget {
+class Page8 extends StatelessWidget {
   final OnboardController controller;
-  Page2({required this.controller});
+  Page8({required this.controller});
   @override
   Widget build(BuildContext context) {
     return GetBuilder<OnboardController>(
@@ -18,7 +18,7 @@ class Page2 extends StatelessWidget {
             children: [
               SizedBox(height: 20),
               Text(
-                'How many workouts do you do per weeks?',
+                'Please Choose what Goal you like to achieve',
                 style: TextStyle(
                   color: AppColors.darkOlive,
                   fontSize: 28,
@@ -26,83 +26,74 @@ class Page2 extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              Text(
-                'It will be used to calibrate your custom plan.',
-                style: TextStyle(
-                  color: AppColors.darkOlive,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Trajan Pro',
-                ),
-                textAlign: TextAlign.center,
-              ),
+
               SizedBox(height: 70),
               Obx(() => Column(
                 children: [
                   CustomButton2(
-                    title: 'Lite',
-                    subtitle: 'Physical activity level (1.2 to 1.3)',
+                    title: 'Gain Weight',
+                  suffixSvg: 'assets/icons/gainweight.svg',
                     onPressed: () {
-                      controller.selectedworkout('Lite');
+                      controller.selectgoal('weightgain');
                       if(controller.isselected.value==false)
                         controller.isselected.toggle();
                     },
-                    backgroundColor: controller.selectedworkout.value == 'Lite'
+                    backgroundColor: controller.selectgoal.value == 'weightgain'
                         ? AppColors.darkGreen
                         : AppColors.neutralUltraLight,
                     borderColor: AppColors.lightGray,
-                    textColor: controller.selectedworkout.value == 'Lite'
+                    textColor: controller.selectgoal.value == 'weightgain'
                         ? AppColors.lightGray
                         : AppColors.darkOlive,
                   ),
                   SizedBox(height: 20),
                   CustomButton2(
-                    title: 'Moderate',
-                    subtitle: 'Physical activity level (1.2 to 1.3)',
+                    title: 'Lose Weight',
+                    suffixSvg: 'assets/icons/loseweight.svg',
                     onPressed: () {
-                      controller.selectedworkout('Moderate');
+                      controller.selectgoal('weightloss');
                       if(controller.isselected.value==false)
                         controller.isselected.toggle();
                     },
-                    backgroundColor: controller.selectedworkout.value == 'Moderate'
+                    backgroundColor: controller.selectgoal.value == 'weightloss'
                         ? AppColors.darkGreen
                         : AppColors.neutralUltraLight,
                     borderColor: AppColors.lightGray,
-                    textColor: controller.selectedworkout.value == 'Moderate'
+                    textColor: controller.selectgoal.value == 'weightloss'
                         ? AppColors.lightGray
                         : AppColors.darkOlive,
                   ),
                   SizedBox(height: 20),
                   CustomButton2(
-                    title: 'Heavy',
-                    subtitle: 'Physical activity level (1.2 to 1.3)',
+                    title: 'Maintain Weight',
+                    suffixSvg: 'assets/icons/maintainweight.svg',
                     onPressed: () {
-                      controller.selectedworkout('Heavy');
+                      controller.selectgoal('maintained');
                       if(controller.isselected.value==false)
                         controller.isselected.toggle();
                     },
-                    backgroundColor: controller.selectedworkout.value == 'Heavy'
+                    backgroundColor: controller.selectgoal.value == 'maintained'
                         ? AppColors.darkGreen
                         : AppColors.neutralUltraLight,
                     borderColor: AppColors.lightGray,
-                    textColor: controller.selectedworkout.value == 'Heavy'
+                    textColor: controller.selectgoal.value == 'maintained'
                         ? AppColors.lightGray
                         : AppColors.darkOlive,
                   ),
                   SizedBox(height: 20),
                   CustomButton2(
-                    title: 'Rest and Recovery',
-                    subtitle: 'Physical activity level (1.2 to 1.3)',
+                    title: 'I’m Just exploring',
+                    suffixSvg: 'assets/icons/exploring.svg',
                     onPressed: () {
-                      controller.selectedworkout('Rest and Recovery');
+                      controller.selectgoal('weight');
                       if(controller.isselected.value==false)
                         controller.isselected.toggle();
                     },
-                    backgroundColor: controller.selectedworkout.value == 'Rest and Recovery'
+                    backgroundColor: controller.selectgoal.value == 'weight'
                         ? AppColors.darkGreen
                         : AppColors.neutralUltraLight,
                     borderColor: AppColors.lightGray,
-                    textColor: controller.selectedworkout.value == 'Rest and Recovery'
+                    textColor: controller.selectgoal.value == 'weight'
                         ? AppColors.lightGray
                         : AppColors.darkOlive,
                   ),

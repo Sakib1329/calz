@@ -1,5 +1,6 @@
 import 'package:calzz/theme/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart'; // << add this
 
 class CustomButton2 extends StatelessWidget {
   final String title;
@@ -8,25 +9,32 @@ class CustomButton2 extends StatelessWidget {
   final Color backgroundColor;
   final Color borderColor;
   final Color textColor;
-  final IconData? suffixIcon;
+  final String? suffixSvg;
+  final  double svgwidth;
+  final  double svgheight;// << change from IconData? to String? for SVG path
 
   const CustomButton2({
     super.key,
+    this.svgwidth=30,
+  this.svgheight=30,
     required this.title,
-    required this.subtitle,
+    this.subtitle = "",
     required this.onPressed,
     required this.backgroundColor,
     required this.borderColor,
     this.textColor = Colors.white,
-    this.suffixIcon,
+    this.suffixSvg,
   });
 
   @override
   Widget build(BuildContext context) {
+    final bool hasSubtitle = subtitle.isNotEmpty;
+    final double buttonHeight = hasSubtitle ? 80 : 60;
+
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        fixedSize: const Size(360, 80),
+        fixedSize: Size(360, buttonHeight),
         backgroundColor: backgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
@@ -37,10 +45,11 @@ class CustomButton2 extends StatelessWidget {
         shadowColor: AppColors.lightGray,
         alignment: Alignment.centerLeft,
       ),
-      child: Row(
+      child: suffixSvg == null
+          ? Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Title and subtitle
+          // Title and optional subtitle
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -54,26 +63,41 @@ class CustomButton2 extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              const SizedBox(height: 4),
-              Text(
-                subtitle,
-                style: TextStyle(
-                  color: textColor,
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Trajan Pro',
+              if (hasSubtitle) ...[
+                const SizedBox(height: 4),
+                Text(
+                  subtitle,
+                  style: TextStyle(
+                    color: textColor,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Trajan Pro',
+                  ),
                 ),
-              ),
+              ],
             ],
           ),
-
-          // Suffix icon
-          if (suffixIcon != null)
-            Icon(
-              suffixIcon,
+          const SizedBox(width: 24), // Optional balance
+        ],
+      )
+          : Row(
+        children: [
+          SvgPicture.asset(
+            suffixSvg!,
+            width: svgwidth,
+            height: svgheight,
+            colorFilter: ColorFilter.mode(textColor, BlendMode.srcIn),
+          ),
+          const SizedBox(width: 12),
+          Text(
+            title,
+            style: TextStyle(
               color: textColor,
-              size: 24,
+              fontSize: 20,
+              fontFamily: 'Schuyler',
+              fontWeight: FontWeight.w600,
             ),
+          ),
         ],
       ),
     );

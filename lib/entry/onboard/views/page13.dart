@@ -5,9 +5,9 @@ import '../../../widget/custom_button.dart';
 import '../controller/onboard_controller.dart';
 import '../widget/button.dart';
 
-class Page2 extends StatelessWidget {
+class Page13 extends StatelessWidget {
   final OnboardController controller;
-  Page2({required this.controller});
+  Page13({required this.controller});
   @override
   Widget build(BuildContext context) {
     return GetBuilder<OnboardController>(
@@ -18,95 +18,102 @@ class Page2 extends StatelessWidget {
             children: [
               SizedBox(height: 20),
               Text(
-                'How many workouts do you do per weeks?',
+                'Please Select your type of diet',
                 style: TextStyle(
                   color: AppColors.darkOlive,
-                  fontSize: 28,
+                  fontSize: 26,
                   fontFamily: 'Schuyler',
                 ),
                 textAlign: TextAlign.center,
               ),
-              Text(
-                'It will be used to calibrate your custom plan.',
-                style: TextStyle(
-                  color: AppColors.darkOlive,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Trajan Pro',
-                ),
-                textAlign: TextAlign.center,
-              ),
+
               SizedBox(height: 70),
               Obx(() => Column(
                 children: [
                   CustomButton2(
-                    title: 'Lite',
-                    subtitle: 'Physical activity level (1.2 to 1.3)',
+                    title: 'Balanced',
+                    suffixSvg: 'assets/icons/balanced.svg',
                     onPressed: () {
-                      controller.selectedworkout('Lite');
+                      controller.selecteddiettype('Balanced');
                       if(controller.isselected.value==false)
                         controller.isselected.toggle();
                     },
-                    backgroundColor: controller.selectedworkout.value == 'Lite'
+                    backgroundColor: controller.selecteddiettype.value == 'Balanced'
                         ? AppColors.darkGreen
                         : AppColors.neutralUltraLight,
                     borderColor: AppColors.lightGray,
-                    textColor: controller.selectedworkout.value == 'Lite'
+                    textColor: controller.selecteddiettype.value == 'Balanced'
                         ? AppColors.lightGray
                         : AppColors.darkOlive,
                   ),
                   SizedBox(height: 20),
                   CustomButton2(
-                    title: 'Moderate',
-                    subtitle: 'Physical activity level (1.2 to 1.3)',
+                    title: 'Pescatarian',
+                    suffixSvg: 'assets/icons/pescatarian.svg',
                     onPressed: () {
-                      controller.selectedworkout('Moderate');
+                      controller.selecteddiettype('Pescatarian');
                       if(controller.isselected.value==false)
                         controller.isselected.toggle();
                     },
-                    backgroundColor: controller.selectedworkout.value == 'Moderate'
+                    backgroundColor: controller.selecteddiettype.value == 'Pescatarian'
                         ? AppColors.darkGreen
                         : AppColors.neutralUltraLight,
                     borderColor: AppColors.lightGray,
-                    textColor: controller.selectedworkout.value == 'Moderate'
+                    textColor: controller.selecteddiettype.value == 'Pescatarian'
                         ? AppColors.lightGray
                         : AppColors.darkOlive,
                   ),
                   SizedBox(height: 20),
                   CustomButton2(
-                    title: 'Heavy',
-                    subtitle: 'Physical activity level (1.2 to 1.3)',
+                    title: 'Vegetarian',
+                    suffixSvg: 'assets/icons/vegetarian.svg',
                     onPressed: () {
-                      controller.selectedworkout('Heavy');
+                      controller.selecteddiettype('Vegetarian');
                       if(controller.isselected.value==false)
                         controller.isselected.toggle();
                     },
-                    backgroundColor: controller.selectedworkout.value == 'Heavy'
+                    backgroundColor: controller.selecteddiettype.value == 'Vegetarian'
                         ? AppColors.darkGreen
                         : AppColors.neutralUltraLight,
                     borderColor: AppColors.lightGray,
-                    textColor: controller.selectedworkout.value == 'Heavy'
+                    textColor: controller.selecteddiettype.value == 'Vegetarian'
                         ? AppColors.lightGray
                         : AppColors.darkOlive,
                   ),
                   SizedBox(height: 20),
                   CustomButton2(
-                    title: 'Rest and Recovery',
-                    subtitle: 'Physical activity level (1.2 to 1.3)',
+                    title: 'Vegan',
+                    suffixSvg: 'assets/icons/vegan.svg',
                     onPressed: () {
-                      controller.selectedworkout('Rest and Recovery');
+                      controller.selecteddiettype('Vegan');
                       if(controller.isselected.value==false)
                         controller.isselected.toggle();
                     },
-                    backgroundColor: controller.selectedworkout.value == 'Rest and Recovery'
+                    backgroundColor: controller.selecteddiettype.value == 'Vegan'
                         ? AppColors.darkGreen
                         : AppColors.neutralUltraLight,
                     borderColor: AppColors.lightGray,
-                    textColor: controller.selectedworkout.value == 'Rest and Recovery'
+                    textColor: controller.selecteddiettype.value == 'Vegan'
                         ? AppColors.lightGray
                         : AppColors.darkOlive,
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
+                  CustomButton2(
+                    title: 'Flexible eating',
+                    suffixSvg: 'assets/icons/flexible.svg',
+                    onPressed: () {
+                      controller.selecteddiettype('Flexible eating');
+                      if(controller.isselected.value==false)
+                        controller.isselected.toggle();
+                    },
+                    backgroundColor: controller.selecteddiettype.value == 'Flexible eating'
+                        ? AppColors.darkGreen
+                        : AppColors.neutralUltraLight,
+                    borderColor: AppColors.lightGray,
+                    textColor: controller.selecteddiettype.value == 'Flexible eating'
+                        ? AppColors.lightGray
+                        : AppColors.darkOlive,
+                  ),
 
                 ],
               )),
